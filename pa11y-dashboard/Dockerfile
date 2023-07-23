@@ -1,4 +1,4 @@
-FROM node:14-alpine
+FROM grafana/docker-puppeteer:1.1.0
 WORKDIR /usr/src/app
 COPY ./pa11y-dashboard /usr/src/app
 RUN npm install
