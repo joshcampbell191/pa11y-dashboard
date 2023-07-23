@@ -1,0 +1,6 @@
+{
+    "port": 8080,
+    "noindex": true,
+    "readonly": false,
+    "webservice": "http://pa11y-webservice:3000/"
+}

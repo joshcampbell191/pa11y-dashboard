@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  pa11y-database:
+    image: mongo:4.4
+    container_name: pa11y-database
+
+  pa11y-webservice:
+    build: ./pa11y-webservice
+    container_name: pa11y-webservice
+    volumes:
+      - ./pa11y-webservice/config:/usr/src/app/config
+    depends_on:
+      - pa11y-database
+
+  pa11y-dashboard:
+    build: ./pa11y-dashboard
+    container_name: pa11y-dashboard
+    volumes:
+      - ./pa11y-dashboard/config:/usr/src/app/config
+    ports:
+      - 8080:8080
+    depends_on:
+      - pa11y-database
+      - pa11y-webservice
